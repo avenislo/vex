@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flutter-like Layout Engine Demo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: #333;
+    }
+    
+    .demo-section {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    
+    h2 {
+      margin-top: 0;
+      color: #00b6da;
+    }
+    
+    .code-example {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; color: #00b6da; margin: 20px 0;">Flutter-like Layout Engine Demo</h1>
+  
+  <!-- Row Demo -->
+  <div class="demo-section">
+    <h2>Row Component Demo</h2>
+    <div class="code-example">&lt;vex-row main-axis-alignment="space-between" cross-axis-alignment="center" padding="16px" background="#f0f0f0" border-radius="8px"&gt;
+  &lt;vex-container width="80px" height="80px" background="red"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="80px" height="80px" background="green"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="80px" height="80px" background="blue"&gt;&lt;/vex-container&gt;
+&lt;/vex-row&gt;</div>
+    
+    <vex-row main-axis-alignment="space-between" cross-axis-alignment="center" padding="16px" background="#f0f0f0" border-radius="8px">
+      <vex-container width="80px" height="80px" background="red"></vex-container>
+      <vex-container width="80px" height="80px" background="green"></vex-container>
+      <vex-container width="80px" height="80px" background="blue"></vex-container>
+    </vex-row>
+  </div>
+  
+  <!-- Column Demo -->
+  <div class="demo-section">
+    <h2>Column Component Demo</h2>
+    <div class="code-example">&lt;vex-column main-axis-alignment="center" cross-axis-alignment="center" gap="16px" padding="16px" background="#f0f0f0" border-radius="8px" height="300px"&gt;
+  &lt;vex-container width="150px" height="50px" background="coral"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="150px" height="50px" background="purple"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="150px" height="50px" background="teal"&gt;&lt;/vex-container&gt;
+&lt;/vex-column&gt;</div>
+    
+    <vex-column main-axis-alignment="center" cross-axis-alignment="center" gap="16px" padding="16px" background="#f0f0f0" border-radius="8px" height="300px">
+      <vex-container width="150px" height="50px" background="coral"></vex-container>
+      <vex-container width="150px" height="50px" background="purple"></vex-container>
+      <vex-container width="150px" height="50px" background="teal"></vex-container>
+    </vex-column>
+  </div>
+  
+  <!-- Flexible Demo -->
+  <div class="demo-section">
+    <h2>Flexible Component Demo</h2>
+    <div class="code-example">&lt;vex-row height="80px" background="#f0f0f0" border-radius="8px"&gt;
+  &lt;vex-flexible flex="1" background="#ff9999"&gt;&lt;vex-center&gt;flex: 1&lt;/vex-center&gt;&lt;/vex-flexible&gt;
+  &lt;vex-flexible flex="2" background="#99ff99"&gt;&lt;vex-center&gt;flex: 2&lt;/vex-center&gt;&lt;/vex-flexible&gt;
+  &lt;vex-flexible flex="3" background="#9999ff"&gt;&lt;vex-center&gt;flex: 3&lt;/vex-center&gt;&lt;/vex-flexible&gt;
+&lt;/vex-row&gt;</div>
+    
+    <vex-row height="80px" background="#f0f0f0" border-radius="8px">
+      <vex-flexible flex="1" background="#ff9999"><vex-center>flex: 1</vex-center></vex-flexible>
+      <vex-flexible flex="2" background="#99ff99"><vex-center>flex: 2</vex-center></vex-flexible>
+      <vex-flexible flex="3" background="#9999ff"><vex-center>flex: 3</vex-center></vex-flexible>
+    </vex-row>
+  </div>
+  
+  <!-- Container Demo -->
+  <div class="demo-section">
+    <h2>Container Component Demo</h2>
+    <div class="code-example">&lt;vex-container width="200px" height="100px" padding="16px" background="#00b6da" color="white" border-radius="8px" box-shadow="0 4px 8px rgba(0,0,0,0.1)" align-items="center" justify-content="center"&gt;
+  Styled Container
+&lt;/vex-container&gt;</div>
+    
+    <vex-container width="200px" height="100px" padding="16px" background="#00b6da" color="white" border-radius="8px" box-shadow="0 4px 8px rgba(0,0,0,0.1)" align-items="center" justify-content="center">
+      Styled Container
+    </vex-container>
+  </div>
+  
+  <!-- Stack Demo -->
+  <div class="demo-section">
+    <h2>Stack & Positioned Components Demo</h2>
+    <div class="code-example">&lt;vex-stack width="300px" height="200px" background="#f0f0f0" border-radius="8px"&gt;
+  &lt;vex-positioned top="20px" left="20px" width="100px" height="100px"&gt;
+    &lt;vex-container background="rgba(255,0,0,0.5)" border-radius="8px"&gt;&lt;/vex-container&gt;
+  &lt;/vex-positioned&gt;
+  &lt;vex-positioned top="40px" left="40px" width="100px" height="100px"&gt;
+    &lt;vex-container background="rgba(0,255,0,0.5)" border-radius="8px"&gt;&lt;/vex-container&gt;
+  &lt;/vex-positioned&gt;
+  &lt;vex-positioned top="60px" left="60px" width="100px" height="100px"&gt;
+    &lt;vex-container background="rgba(0,0,255,0.5)" border-radius="8px"&gt;&lt;/vex-container&gt;
+  &lt;/vex-positioned&gt;
+&lt;/vex-stack&gt;</div>
+    
+    <vex-stack width="300px" height="200px" background="#f0f0f0" border-radius="8px">
+      <vex-positioned top="20px" left="20px" width="100px" height="100px">
+        <vex-container background="rgba(255,0,0,0.5)" border-radius="8px"></vex-container>
+      </vex-positioned>
+      <vex-positioned top="40px" left="40px" width="100px" height="100px">
+        <vex-container background="rgba(0,255,0,0.5)" border-radius="8px"></vex-container>
+      </vex-positioned>
+      <vex-positioned top="60px" left="60px" width="100px" height="100px">
+        <vex-container background="rgba(0,0,255,0.5)" border-radius="8px"></vex-container>
+      </vex-positioned>
+    </vex-stack>
+  </div>
+  
+  <!-- Grid Demo -->
+  <div class="demo-section">
+    <h2>Grid Component Demo</h2>
+    <div class="code-example">&lt;vex-grid columns="3" row-gap="10px" column-gap="10px" background="#f0f0f0" padding="10px" border-radius="8px"&gt;
+  &lt;vex-grid-item&gt;&lt;vex-container height="50px" background="#ff9999"&gt;&lt;/vex-container&gt;&lt;/vex-grid-item&gt;
+  &lt;vex-grid-item&gt;&lt;vex-container height="50px" background="#99ff99"&gt;&lt;/vex-container&gt;&lt;/vex-grid-item&gt;
+  &lt;vex-grid-item&gt;&lt;vex-container height="50px" background="#9999ff"&gt;&lt;/vex-container&gt;&lt;/vex-grid-item&gt;
+  &lt;vex-grid-item column-span="2"&gt;&lt;vex-container height="50px" background="#ffff99"&gt;&lt;/vex-container&gt;&lt;/vex-grid-item&gt;
+  &lt;vex-grid-item&gt;&lt;vex-container height="50px" background="#ff99ff"&gt;&lt;/vex-container&gt;&lt;/vex-grid-item&gt;
+  &lt;vex-grid-item&gt;&lt;vex-container height="50px" background="#99ffff"&gt;&lt;/vex-container&gt;&lt;/vex-grid-item&gt;
+  &lt;vex-grid-item column-span="2"&gt;&lt;vex-container height="50px" background="#cccccc"&gt;&lt;/vex-container&gt;&lt;/vex-grid-item&gt;
+&lt;/vex-grid&gt;</div>
+    
+    <vex-grid columns="3" row-gap="10px" column-gap="10px" background="#f0f0f0" padding="10px" border-radius="8px">
+      <vex-grid-item><vex-container height="50px" background="#ff9999"></vex-container></vex-grid-item>
+      <vex-grid-item><vex-container height="50px" background="#99ff99"></vex-container></vex-grid-item>
+      <vex-grid-item><vex-container height="50px" background="#9999ff"></vex-container></vex-grid-item>
+      <vex-grid-item column-span="2"><vex-container height="50px" background="#ffff99"></vex-container></vex-grid-item>
+      <vex-grid-item><vex-container height="50px" background="#ff99ff"></vex-container></vex-grid-item>
+      <vex-grid-item><vex-container height="50px" background="#99ffff"></vex-container></vex-grid-item>
+      <vex-grid-item column-span="2"><vex-container height="50px" background="#cccccc"></vex-container></vex-grid-item>
+    </vex-grid>
+  </div>
+  
+  <!-- AspectRatio Demo -->
+  <div class="demo-section">
+    <h2>AspectRatio Component Demo</h2>
+    <div class="code-example">&lt;vex-aspect-ratio ratio="16/9" width="300px"&gt;
+  &lt;vex-container background="#00b6da" border-radius="8px"&gt;
+    &lt;vex-center&gt;16:9 Aspect Ratio&lt;/vex-center&gt;
+  &lt;/vex-container&gt;
+&lt;/vex-aspect-ratio&gt;</div>
+    
+    <vex-aspect-ratio ratio="16/9" width="300px">
+      <vex-container background="#00b6da" border-radius="8px">
+        <vex-center>16:9 Aspect Ratio</vex-center>
+      </vex-container>
+    </vex-aspect-ratio>
+  </div>
+  
+  <!-- Wrap Demo -->
+  <div class="demo-section">
+    <h2>Wrap Component Demo</h2>
+    <div class="code-example">&lt;vex-wrap spacing="10px" run-spacing="10px" padding="10px" background="#f0f0f0" border-radius="8px"&gt;
+  &lt;vex-container width="80px" height="40px" background="#ff9999"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="120px" height="40px" background="#99ff99"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="100px" height="40px" background="#9999ff"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="150px" height="40px" background="#ffff99"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="90px" height="40px" background="#ff99ff"&gt;&lt;/vex-container&gt;
+  &lt;vex-container width="130px" height="40px" background="#99ffff"&gt;&lt;/vex-container&gt;
+&lt;/vex-wrap&gt;</div>
+    
+    <vex-wrap spacing="10px" run-spacing="10px" padding="10px" background="#f0f0f0" border-radius="8px">
+      <vex-container width="80px" height="40px" background="#ff9999"></vex-container>
+      <vex-container width="120px" height="40px" background="#99ff99"></vex-container>
+      <vex-container width="100px" height="40px" background="#9999ff"></vex-container>
+      <vex-container width="150px" height="40px" background="#ffff99"></vex-container>
+      <vex-container width="90px" height="40px" background="#ff99ff"></vex-container>
+      <vex-container width="130px" height="40px" background="#99ffff"></vex-container>
+    </vex-wrap>
+  </div>
+  
+  <!-- Complex Layout Example -->
+  <div class="demo-section">
+    <h2>Complex Layout Example</h2>
+    <div class="code-example">&lt;vex-container background="#f5f5f5" padding="16px" border-radius="8px" box-shadow="0 4px 8px rgba(0,0,0,0.1)" width="100%"&gt;
+  &lt;vex-column gap="16px"&gt;
+    &lt;vex-container background="#00b6da" color="white" padding="12px" border-radius="4px"&gt;
+      &lt;vex-center&gt;Header Section&lt;/vex-center&gt;
+    &lt;/vex-container&gt;
+    
+    &lt;vex-row gap="16px" height="300px"&gt;
+      &lt;vex-flexible flex="1"&gt;
+        &lt;vex-container background="white" padding="12px" border-radius="4px" box-shadow="0 2px 4px rgba(0,0,0,0.05)" height="100%"&gt;
+          &lt;vex-column gap="12px"&gt;
+            &lt;div&gt;Sidebar Navigation&lt;/div&gt;
+            &lt;vex-container background="#f0f0f0" height="40px" border-radius="4px"&gt;&lt;vex-center&gt;Item 1&lt;/vex-center&gt;&lt;/vex-container&gt;
+            &lt;vex-container background="#f0f0f0" height="40px" border-radius="4px"&gt;&lt;vex-center&gt;Item 2&lt;/vex-center&gt;&lt;/vex-container&gt;
+            &lt;vex-container background="#f0f0f0" height="40px" border-radius="4px"&gt;&lt;vex-center&gt;Item 3&lt;/vex-center&gt;&lt;/vex-container&gt;
+          &lt;/vex-column&gt;
+        &lt;/vex-container&gt;
+      &lt;/vex-flexible&gt;
+      
+      &lt;vex-flexible flex="3"&gt;
+        &lt;vex-container background="white" padding="16px" border-radius="4px" box-shadow="0 2px 4px rgba(0,0,0,0.05)" height="100%"&gt;
+          &lt;vex-column gap="16px"&gt;
+            &lt;div&gt;Main Content Area&lt;/div&gt;
+            &lt;vex-grid columns="2" gap="16px"&gt;
+              &lt;vex-grid-item&gt;
+                &lt;vex-container background="#f0f0f0" height="100px" border-radius="4px" padding="12px"&gt;
+                  Content Card 1
+                &lt;/vex-container&gt;
+              &lt;/vex-grid-item&gt;
+              &lt;vex-grid-item&gt;
+                &lt;vex-container background="#f0f0f0" height="100px" border-radius="4px" padding="12px"&gt;
+                  Content Card 2
+                &lt;/vex-container&gt;
+              &lt;/vex-grid-item&gt;
+              &lt;vex-grid-item column-span="2"&gt;
+                &lt;vex-container background="#f0f0f0" height="100px" border-radius="4px" padding="12px"&gt;
+                  Full Width Content
+                &lt;/vex-container&gt;
+              &lt;/vex-grid-item&gt;
+            &lt;/vex-grid&gt;
+          &lt;/vex-column&gt;
+        &lt;/vex-container&gt;
+      &lt;/vex-flexible&gt;
+    &lt;/vex-row&gt;
+    
+    &lt;vex-container background="#00b6da" color="white" padding="12px" border-radius="4px"&gt;
+      &lt;vex-row main-axis-alignment="space-between" cross-axis-alignment="center"&gt;
+        &lt;div&gt;Footer © 2025&lt;/div&gt;
+        &lt;vex-row gap="16px"&gt;
+          &lt;div&gt;Link 1&lt;/div&gt;
+          &lt;div&gt;Link 2&lt;/div&gt;
+          &lt;div&gt;Link 3&lt;/div&gt;
+        &lt;/vex-row&gt;
+      &lt;/vex-row&gt;
+    &lt;/vex-container&gt;
+  &lt;/vex-column&gt;
+&lt;/vex-container&gt;</div>
+    
+    <vex-container background="#f5f5f5" padding="16px" border-radius="8px" box-shadow="0 4px 8px rgba(0,0,0,0.1)" width="100%">
+      <vex-column gap="16px">
+        <vex-container background="#00b6da" color="white" padding="12px" border-radius="4px">
+          <vex-center>Header Section</vex-center>
+        </vex-container>
+        
+        <vex-row gap="16px" height="300px">
+          <vex-flexible flex="1">
+            <vex-container background="white" padding="12px" border-radius="4px" box-shadow="0 2px 4px rgba(0,0,0,0.05)" height="100%">
+              <vex-column gap="12px">
+                <div>Sidebar Navigation</div>
+                <vex-container background="#f0f0f0" height="40px" border-radius="4px"><vex-center>Item 1</vex-center></vex-container>
+                <vex-container background="#f0f0f0" height="40px" border-radius="4px"><vex-center>Item 2</vex-center></vex-container>
+                <vex-container background="#f0f0f0" height="40px" border-radius="4px"><vex-center>Item 3</vex-center></vex-container>
+              </vex-column>
+            </vex-container>
+          </vex-flexible>
+          
+          <vex-flexible flex="3">
+            <vex-container background="white" padding="16px" border-radius="4px" box-shadow="0 2px 4px rgba(0,0,0,0.05)" height="100%">
+              <vex-column gap="16px">
+                <div>Main Content Area</div>
+                <vex-grid columns="2" gap="16px">
+                  <vex-grid-item>
+                    <vex-container background="#f0f0f0" height="100px" border-radius="4px" padding="12px">
+                      Content Card 1
+                    </vex-container>
+                  </vex-grid-item>
+                  <vex-grid-item>
+                    <vex-container background="#f0f0f0" height="100px" border-radius="4px" padding="12px">
+                      Content Card 2
+                    </vex-container>
+                  </vex-grid-item>
+                  <vex-grid-item column-span="2">
+                    <vex-container background="#f0f0f0" height="100px" border-radius="4px" padding="12px">
+                      Full Width Content
+                    </vex-container>
+                  </vex-grid-item>
+                </vex-grid>
+              </vex-column>
+            </vex-container>
+          </vex-flexible>
+        </vex-row>
+        
+        <vex-container background="#00b6da" color="white" padding="12px" border-radius="4px">
+          <vex-row main-axis-alignment="space-between" cross-axis-alignment="center">
+            <div>Footer © 2025</div>
+            <vex-row gap="16px">
+              <div>Link 1</div>
+              <div>Link 2</div>
+              <div>Link 3</div>
+            </vex-row>
+          </vex-row>
+        </vex-container>
+      </vex-column>
+    </vex-container>
+  </div>
+
+  <script src="./js/layout-base.js"></script>
+  <script src="./js/vex-row.js"></script>
+  <script src="./js/vex-column.js"></script>
+  <script src="./js/vex-flexible.js"></script>
+  <script src="./js/vex-container.js"></script>
+  <script src="./js/vex-center.js"></script>
+  <script src="./js/vex-padding.js"></script>
+  <script src="./js/vex-sized-box.js"></script>
+  <script src="./js/vex-stack.js"></script>
+  <script src="./js/vex-grid.js"></script>
+  <script src="./js/vex-grid-item.js"></script>
+  <script src="./js/vex-aspect-ratio.js"></script>
+  <script src="./js/vex-wrap.js"></script>
+  <script src="./js/vex-positioned.js"></script>
+</body>
+</html>
