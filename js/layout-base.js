@@ -61,7 +61,7 @@ class LayoutBase extends HTMLElement {
       'transition', 'transition-property', 'transition-duration', 'transition-timing', 'transition-delay',
       'transform', 'transform-origin', 'scale', 'rotate', 'translate',
       'animation', 'animation-name', 'animation-duration', 'animation-timing', 'animation-delay',
-      
+
       // Interactivity
       'cursor', 'pointer-events', 'user-select', 'resize', 'appearance',
     ];
